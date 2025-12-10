@@ -98,14 +98,3 @@ npm run dev
 
 ---
 
-## 📦 Deployment
-
-Deploy instantly via [Lovable](https://lovable.dev) by clicking **Share → Publish**.
-
-Custom domains can be connected in **Project → Settings → Domains**.
-
----
-
-## 📄 License
-
-This project is built with [Lovable](https://lovable.dev).
