@@ -1,73 +1,111 @@
-# Welcome to your Lovable project
+# 🥗 NutriSchedule
 
-## Project info
+**Your Personal Dietary Counseling Appointment Platform**
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A modern, responsive web application that connects individuals with qualified dietary professionals for personalized nutrition guidance.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 📋 What is NutriSchedule?
 
-**Use Lovable**
+NutriSchedule is a user-friendly scheduling platform designed to simplify the process of booking dietary counseling appointments. Whether you're looking to improve your eating habits, manage a health condition through nutrition, or optimize your athletic performance, NutriSchedule connects you with trained professionals who can guide your journey.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 👥 Who is it for?
 
-**Use your preferred IDE**
+- **Health-conscious individuals** seeking professional dietary guidance
+- **Patients** requiring regular nutritional follow-ups
+- **Athletes** looking to optimize their performance through nutrition
+- **Anyone** pursuing wellness goals with expert support
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## ✨ Key Benefits
 
-Follow these steps:
+| Benefit | Description |
+|---------|-------------|
+| **Convenient Self-Scheduling** | Book appointments anytime, anywhere, without phone calls |
+| **Professional Matching** | Get paired with qualified specialists (Clinical Nutritionists, Dietary Counselors, Sports Nutritionists) |
+| **Visual Calendar** | Easily navigate weeks and see availability at a glance |
+| **Appointment Management** | View your complete history and manage upcoming sessions |
+| **Conflict Prevention** | One appointment per day ensures manageable scheduling |
+
+---
+
+## 🔄 How It Works
+
+### Step 1: Navigate to Your Preferred Week
+Use the week navigator to browse available dates. Past weeks are locked to maintain scheduling integrity.
+
+### Step 2: Select a Day
+Click on any available day to see time slots. Days with existing appointments are clearly marked.
+
+### Step 3: Choose a Time Slot
+Time slots are organized by period:
+- ☀️ **Morning** (9:00 AM - 12:00 PM)
+- 🌤️ **Afternoon** (1:00 PM - 5:00 PM)
+- 🌙 **Evening** (6:00 PM - 8:00 PM)
+
+### Step 4: Confirm Your Booking
+Review your selection and confirm. You'll be matched with an available dietary professional for a **30-minute consultation**.
+
+### Managing Appointments
+- **Upcoming appointments**: Can be edited or rescheduled
+- **Past appointments**: Locked and marked as completed for your records
+
+---
+
+## 🎯 Features
+
+- ✅ Fully responsive design (mobile, tablet, desktop)
+- ✅ Intuitive week-by-week navigation
+- ✅ Real-time availability display
+- ✅ Smart conflict detection (one appointment per day)
+- ✅ Appointment history tracking
+- ✅ Smooth animations and modern UI
+- ✅ Accessible color-coded status indicators
+
+---
+
+## 🛠️ Technology Stack
+
+- **React** - Component-based UI framework
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tooling
+- **Tailwind CSS** - Utility-first styling
+- **shadcn/ui** - Beautiful, accessible components
+- **date-fns** - Date manipulation
+- **Framer Motion** - Smooth animations
+
+---
+
+## 🚀 Getting Started
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to the project directory
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📦 Deployment
 
-**Use GitHub Codespaces**
+Deploy instantly via [Lovable](https://lovable.dev) by clicking **Share → Publish**.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Custom domains can be connected in **Project → Settings → Domains**.
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 📄 License
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+This project is built with [Lovable](https://lovable.dev).
