@@ -114,7 +114,7 @@ export const SchedulingApp = () => {
         <div className="container max-w-5xl mx-auto px-4 py-4 sm:py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-4xl">🥗</div>
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-3xl">🥗</div>
               <div>
                 <h1 className="text-xl sm:text-2xl font-bold text-foreground">NutriSchedule</h1>
                 <p className="text-sm text-muted-foreground hidden sm:block">Dietary Counseling Appointments</p>
