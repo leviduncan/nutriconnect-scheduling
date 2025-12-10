@@ -6,13 +6,13 @@ import { DaySelector } from "./DaySelector";
 import { TimeSlotGrid } from "./TimeSlotGrid";
 import { AppointmentsList } from "./AppointmentsList";
 import { Button } from "@/components/ui/button";
-import { 
-  mockAppointments, 
-  getTimeSlotsForDate, 
-  getWeekDays, 
+import {
+  mockAppointments,
+  getTimeSlotsForDate,
+  getWeekDays,
   getCurrentWeekStart,
   Appointment,
-  TimeSlot 
+  TimeSlot,
 } from "@/lib/mockData";
 import { toast } from "sonner";
 
@@ -25,9 +25,11 @@ export const SchedulingApp = () => {
 
   const today = startOfDay(new Date());
   const weekDays = useMemo(() => getWeekDays(weekStart), [weekStart]);
-  
-  const canGoBack = !isBefore(startOfWeek(addWeeks(weekStart, -1), { weekStartsOn: 0 }), 
-    startOfWeek(today, { weekStartsOn: 0 }));
+
+  const canGoBack = !isBefore(
+    startOfWeek(addWeeks(weekStart, -1), { weekStartsOn: 0 }),
+    startOfWeek(today, { weekStartsOn: 0 }),
+  );
 
   useEffect(() => {
     if (selectedDate) {
@@ -48,22 +50,22 @@ export const SchedulingApp = () => {
 
   const handleSlotSelect = (slotId: string) => {
     const dateStr = selectedDate ? format(selectedDate, "yyyy-MM-dd") : "";
-    const existingForDay = appointments.find(apt => apt.date === dateStr && !apt.isPast);
-    
+    const existingForDay = appointments.find((apt) => apt.date === dateStr && !apt.isPast);
+
     if (existingForDay) {
       toast.error("You already have an appointment on this day", {
-        description: "Please edit or cancel your existing appointment first."
+        description: "Please edit or cancel your existing appointment first.",
       });
       return;
     }
-    
+
     setSelectedSlot(slotId);
   };
 
   const handleConfirmBooking = () => {
     if (!selectedDate || !selectedSlot) return;
 
-    const slot = timeSlots.find(s => s.id === selectedSlot);
+    const slot = timeSlots.find((s) => s.id === selectedSlot);
     if (!slot) return;
 
     const newAppointment: Appointment = {
@@ -75,19 +77,19 @@ export const SchedulingApp = () => {
       isPast: false,
     };
 
-    setAppointments(prev => [...prev, newAppointment]);
+    setAppointments((prev) => [...prev, newAppointment]);
     setSelectedSlot(null);
-    
+
     toast.success("Appointment Booked!", {
       description: `${format(selectedDate, "EEEE, MMM d")} at ${slot.time}`,
     });
   };
 
   const handleEditAppointment = (id: string) => {
-    const apt = appointments.find(a => a.id === id);
+    const apt = appointments.find((a) => a.id === id);
     if (apt) {
       toast.info("Edit Mode", {
-        description: "Select a new date and time for your appointment."
+        description: "Select a new date and time for your appointment.",
       });
       // Find the week containing this appointment
       const aptDate = new Date(apt.date);
@@ -95,14 +97,14 @@ export const SchedulingApp = () => {
       setWeekStart(aptWeekStart);
       setSelectedDate(aptDate);
       // Remove the appointment so user can rebook
-      setAppointments(prev => prev.filter(a => a.id !== id));
+      setAppointments((prev) => prev.filter((a) => a.id !== id));
     }
   };
 
   const isPastDate = selectedDate ? isBefore(startOfDay(selectedDate), today) : false;
-  
-  const existingAppointment = selectedDate 
-    ? appointments.find(apt => apt.date === format(selectedDate, "yyyy-MM-dd"))
+
+  const existingAppointment = selectedDate
+    ? appointments.find((apt) => apt.date === format(selectedDate, "yyyy-MM-dd"))
     : null;
 
   return (
@@ -112,16 +114,10 @@ export const SchedulingApp = () => {
         <div className="container max-w-5xl mx-auto px-4 py-4 sm:py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                <Sparkles className="h-5 w-5 text-primary" />
-              </div>
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">🥗</div>
               <div>
-                <h1 className="text-xl sm:text-2xl font-bold text-foreground">
-                  NutriSchedule
-                </h1>
-                <p className="text-sm text-muted-foreground hidden sm:block">
-                  Dietary Counseling Appointments
-                </p>
+                <h1 className="text-xl sm:text-2xl font-bold text-foreground">NutriSchedule</h1>
+                <p className="text-sm text-muted-foreground hidden sm:block">Dietary Counseling Appointments</p>
               </div>
             </div>
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
@@ -137,20 +133,12 @@ export const SchedulingApp = () => {
         {/* Scheduling Section */}
         <section className="space-y-6">
           <div className="text-center space-y-2 animate-fade-in">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-              Select an Appointment
-            </h2>
-            <p className="text-muted-foreground">
-              Choose a date and time that works best for you
-            </p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground">Select an Appointment</h2>
+            <p className="text-muted-foreground">Choose a date and time that works best for you</p>
           </div>
 
           {/* Week Navigator */}
-          <WeekNavigator
-            weekStart={weekStart}
-            onWeekChange={handleWeekChange}
-            canGoBack={canGoBack}
-          />
+          <WeekNavigator weekStart={weekStart} onWeekChange={handleWeekChange} canGoBack={canGoBack} />
 
           {/* Day Selector */}
           <DaySelector
@@ -166,9 +154,7 @@ export const SchedulingApp = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-5 w-5 text-primary" />
-                  <h3 className="text-lg font-semibold text-foreground">
-                    {format(selectedDate, "EEEE, MMMM d")}
-                  </h3>
+                  <h3 className="text-lg font-semibold text-foreground">{format(selectedDate, "EEEE, MMMM d")}</h3>
                 </div>
                 {isPastDate && (
                   <span className="px-3 py-1 rounded-full bg-past/10 text-past-foreground text-sm font-medium">
@@ -213,18 +199,11 @@ export const SchedulingApp = () => {
         {/* Appointments List */}
         <section className="space-y-6 pt-6 border-t border-border">
           <div className="text-center space-y-2">
-            <h2 className="text-2xl font-bold text-foreground animate-fade-in">
-              Your Appointments
-            </h2>
-            <p className="text-muted-foreground animate-fade-in stagger-1">
-              View and manage your scheduled sessions
-            </p>
+            <h2 className="text-2xl font-bold text-foreground animate-fade-in">Your Appointments</h2>
+            <p className="text-muted-foreground animate-fade-in stagger-1">View and manage your scheduled sessions</p>
           </div>
 
-          <AppointmentsList
-            appointments={appointments}
-            onEditAppointment={handleEditAppointment}
-          />
+          <AppointmentsList appointments={appointments} onEditAppointment={handleEditAppointment} />
         </section>
       </main>
 
